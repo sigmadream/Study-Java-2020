@@ -10,6 +10,5 @@ public class FrancTest {
         Franc five = new Franc(5);
         assertThat(new Franc(10)).isEqualTo(five.times(2));
         assertThat(new Franc(15)).isEqualTo(five.times(3));
-
     }
 }
