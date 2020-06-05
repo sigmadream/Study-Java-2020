@@ -2,7 +2,7 @@ package com.sangkon.tdd;
 
 import java.util.Objects;
 
-public class Money {
+public class Money implements Expression {
     protected int amount;
 
     protected String currency;
@@ -28,6 +28,14 @@ public class Money {
         return new Money(amount, "CHF");
     }
 
+    public Money plus(Money addend) {
+        return new Money(this.amount + amount, addend.currency());
+    }
+
+    public Money reduce(String to) {
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         Money money = (Money) o;
@@ -41,7 +49,7 @@ public class Money {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return amount + " " + currency;
     }
 }
