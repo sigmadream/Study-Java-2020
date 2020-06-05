@@ -1,5 +1,8 @@
 package com.sangkon.tdd;
 
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 abstract class Money {
@@ -12,6 +15,10 @@ abstract class Money {
     static Franc franc(int amount) {
         return new Franc(amount);
     }
+  
+    abstract Money times(int multiplier);
+
+    abstract String currency();
 
     @Override
     public boolean equals(Object o) {
@@ -20,10 +27,6 @@ abstract class Money {
         Money money = (Money) o;
         return amount == money.amount;
     }
-
-    abstract Money times(int multiplier);
-
-    abstract String currency();
 
     @Override
     public int hashCode() {

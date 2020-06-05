@@ -12,11 +12,11 @@ public class MoneyTest {
         assertThat(new Franc(5)).isEqualTo(new Franc(5));
         assertThat(new Franc(5)).isNotEqualTo(new Franc(6));
 
+
         assertThat(new Franc(15)).isNotEqualTo(new Dollar(16));
 
         assertThat(Money.dollar(5)).isEqualTo(Money.dollar(5));
         assertThat(Money.dollar(5)).isNotEqualTo(Money.dollar(6));
-
         assertThat(Money.franc(5)).isEqualTo(Money.franc(5));
         assertThat(Money.franc(5)).isNotEqualTo(Money.franc(6));
     }
