@@ -1,12 +1,12 @@
 package com.sangkon.tdd;
 
 public class Franc extends Money {
-    public Franc(int amount) {
-        this.amount = amount;
+    Franc(int amount, String currency) {
+        super(amount, currency);
     }
 
     public Money times(int multiplier) {
-        return new Franc(multiplier * amount);
+        return Money.franc(amount * multiplier);
     }
 
 }
