@@ -23,6 +23,7 @@ public class MoneyTest {
         Money five = Money.dollar(5);
         assertThat(Money.dollar(10)).isEqualTo(five.times(2));
         assertThat(Money.dollar(15)).isEqualTo(five.times(3));
+
     }
 
 }
