@@ -14,7 +14,7 @@ public class MoneyTest {
 
     @Test
     public void testFrancMultiplication() {
-        Money five = new Franc(5, "CHF");
+        Money five = new Money(5, "CHF");
         assertThat(Money.franc(10)).isEqualTo(five.times(2));
         assertThat(Money.franc(15)).isEqualTo(five.times(3));
     }
@@ -36,10 +36,7 @@ public class MoneyTest {
 
     @Test
     public void testDifferentClassEquality(){
-        assertThat(new Money(10, "CHF")).isEqualTo(new Franc(10, "CHF"));
+        assertThat(new Money(10, "CHF")).isEqualTo(new Money(10, "CHF"));
     }
 
-
 }
-
-
