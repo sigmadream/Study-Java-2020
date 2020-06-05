@@ -2,12 +2,12 @@ package com.sangkon.tdd;
 
 public class Dollar extends Money {
 
-    public Dollar(int amount) {
-        this.amount = amount;
+    Dollar(int amount, String currency) {
+        super(amount, currency);
     }
 
     public Money times(int multiplier) {
-        return new Dollar(multiplier * amount);
+        return Money.dollar(amount * multiplier);
     }
 
 }
