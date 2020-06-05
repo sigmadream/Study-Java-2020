@@ -1,17 +1,23 @@
 package com.sangkon.tdd;
 
 public class Sum implements Expression {
-    Money augend;
-    Money addend;
+    Expression augend;
+    Expression addend;
 
-    public Sum(Money money, Money addend) {
+    public Sum(Expression money, Expression addend) {
         this.augend = money;
         this.addend = addend;
     }
 
     @Override
     public Money reduce(Bank bank, String to) {
-        int amount = augend.amount + addend.amount;
+        int amount = augend.reduce(bank, to).amount
+                + addend.reduce(bank, to).amount;
         return new Money(amount, to);
+    }
+
+    @Override
+    public Expression plus(Expression addend) {
+        return null;
     }
 }

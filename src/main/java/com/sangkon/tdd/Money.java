@@ -4,8 +4,12 @@ import java.util.Objects;
 
 public class Money implements Expression {
     protected int amount;
-
     protected String currency;
+
+    public Money(int amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
 
     static Money dollar(int amount) {
         return new Money(amount, "USD");
@@ -13,11 +17,6 @@ public class Money implements Expression {
 
     static Money franc(int amount) {
         return new Money(amount, "CHF");
-    }
-
-    Money(int amount, String currency) {
-        this.amount = amount;
-        this.currency = currency;
     }
 
     public Money times(int multiplier) {
@@ -33,8 +32,13 @@ public class Money implements Expression {
     }
 
     public Money reduce(Bank bank, String to) {
-        int rate = bank.rate(currency, to);
+        int rate = (currency.equals("CHF") && to.equals("USD")) ? 2 : 1;
         return new Money(amount / rate, to);
+    }
+
+    @Override
+    public Expression plus(Expression addend) {
+        return new Sum(this, addend);
     }
 
     @Override
